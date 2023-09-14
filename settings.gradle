@@ -1,0 +1,8 @@
+pluginManagement {
+    repositories {
+        maven { url 'http://binary/artifactory/plugins-release'; allowInsecureProtocol = true }
+        maven { url 'http://binary/artifactory/gradleplugins'; allowInsecureProtocol = true }
+    }
+}
+
+rootProject.name = "eco-emuls"

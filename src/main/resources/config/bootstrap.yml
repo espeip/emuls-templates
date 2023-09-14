@@ -1,0 +1,5 @@
+spring.cloud.config:
+  uri: http://${SERVICE_HOST}/${PROJECT_KEY}-config-server
+  enabled: false
+  failFast: true
+server.tomcat.threads.max: 2000

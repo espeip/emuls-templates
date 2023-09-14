@@ -1,0 +1,82 @@
+# настройка уровня логирования
+logging:
+  level:
+    root: INFO
+
+# отдаем метрики в прометеус
+management:
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
+  endpoints:
+    web:
+      base-path: /admin
+      exposure.include: "*"
+  metrics:
+    export:
+      prometheus.enabled: true
+
+# ключ совпадающий с именем проекта заглушек. Нужен для редиса. Удаляем если не используем редис
+PROJECT_KEY: eco_emuls_template
+
+# переопределяем количество потоков для трифт-клиентов, если используем их. Если нет, то удаляем
+thrift:
+  client:
+    max:
+      threads: 124
+      idle:
+        threads: 124
+      total:
+        threads: 124
+
+spring:
+  application.name: eco-emuls
+  sleuth.rxjava.schedulers.hook.enabled: false
+  main.allow-bean-definition-overriding: true
+  # подключаем кафку. Указываем свои сервера с кафкой с портами. Удаляем весь этот блок, если не собираемся использовать кафку
+  kafka:
+    bootstrap-servers: "ltvecopaymonk1:9092,ltvecopaymonk2:9092,ltvecopaymonk3:9092"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    topics:
+      payments: CL2_PAYMENTS
+  # подключаем редис. редис общий, поэтому настройки ниже актуальны для всех
+  cache:
+    type: redis
+  redis:
+    host: "ltvecoredismock"
+    port: 6379
+    enable: true
+    ssl: true
+    failover-cache: true
+    disable-peer-verification: true
+    password: 1231234
+    clientName: ${PROJECT_KEY}
+    global-prefix: "${PROJECT_KEY}"
+    # указываем свой подкеш, где будем хранить данные. ttl - срок хранения данных, в данном случае - 5 минут
+    maps:
+      cache_example:
+        ttl: 5m
+
+
+ws:
+  user_id: TEST
+  branch_number: 0000
+  ext_sys_code: TEST
+  ext_user_code: TEST
+  connection_timeout: 2000
+  request_time: 30000
+  suffix:
+
+responseParameters:
+  # пример выставления задержки для метода getPaymentCommission контроллера TariffApiThriftController
+  TariffApiThriftController_getPaymentCommission:
+    - timeoutInMilliseconds: 194
+      probabilityInPercents: 100
+  # пример выставления задержки для обычной рестовой заглушки
+  SomeMock:
+    - timeoutInMilliseconds: 197
+      totalBytesOut: 13000
+      probabilityInPercents: 100
+      pathToResponse: some_mock/response.json

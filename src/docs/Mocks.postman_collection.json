@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "1b047a85-3169-4b6e-bd86-321386d5a0c0",
+		"name": "Mocks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create1CFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountNumber\": \"12341234\",\n    \"companyName\": \"Test company\",\n    \"inn\": \"12341234\",\n    \"kpp\": \"55555555\",\n    \"destination\": \"UL\",\n    \"quantity\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/create1CFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"create1CFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAuthorizedPersons",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"/CS/EQ/WSCustomerRolesNIB10#GetAuthorizedPersons\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerRolesNIBGetAuthorizedPersons\nxmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\"\nxmlns:ns3=\"http://WSCustomerRolesNIB10.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECOB01</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <acus>X00001</acus>\n            </inParms>\n        </ns3:WSCustomerRolesNIBGetAuthorizedPersons>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerRolesNIB10/SOAP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerRolesNIB10",
+						"SOAP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WSCustomerBaseInfo14",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerBaseInfoGet\nxmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\"\nxmlns:ns3=\"http://WSCustomerBaseInfo14.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECOB01</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <cus>X00001</cus>\n                <clc></clc>\n            </inParms>\n        </ns3:WSCustomerBaseInfoGet>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerBaseInfo/WSCustomerBaseInfo14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerBaseInfo",
+						"WSCustomerBaseInfo14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRolesRights",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"/CS/EQ/WSCustomerRightsNIB10#GetRolesRights\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerRightsNIBGetRolesRights xmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\" xmlns:ns3=\"http://WSCustomerRightsNIB10.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECOB01</externalSystemCode>\n                <externalUserCode>INVEST</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <acus>X00001</acus>\n            </inParms>\n        </ns3:WSCustomerRightsNIBGetRolesRights>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerRightsNIB10/SOAP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerRightsNIB10",
+						"SOAP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WSCustomerTrustPersons11",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"/CS/EQ/WSCustomerTrustPersons11#Get\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerTrustPersonsGet xmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\" xmlns:ns3=\"http://WSCustomerTrustPersons11.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECOB01</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <acus>X1AAAA</acus>\n                <act>Y</act>\n            </inParms>\n        </ns3:WSCustomerTrustPersonsGet>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerTrustPersons/WSCustomerTrustPersons11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerTrustPersons",
+						"WSCustomerTrustPersons11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WSCustomerBaseInfo14",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerBaseInfoGet\nxmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\"\nxmlns:ns3=\"http://WSCustomerBaseInfo14.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECOB01</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <cus>X00001</cus>\n                <clc></clc>\n            </inParms>\n        </ns3:WSCustomerBaseInfoGet>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerBaseInfo/WSCustomerBaseInfo14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerBaseInfo",
+						"WSCustomerBaseInfo14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WSCustomerAccountListGBA17",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "\"/CS/EQ/WSCustomerTrustPersons11#Get\"",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerAccountListGBAGet\nxmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\"\nxmlns:ns3=\"http://WSCustomerAccountListGBA17.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECOB01</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <cus>U00002</cus>\n                <ext>LK</ext>\n                <typ>DFLT</typ>\n                <sql>IS_ALFA_BUISINESS_ACCOUNT(NEEAN,'LK','0','XA8JRO','','G')='Y'</sql>\n                <lnm>RU</lnm>\n            </inParms>\n        </ns3:WSCustomerAccountListGBAGet>\n    </soap:Body>\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerAccountListGBA/WSCustomerAccountListGBA17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerAccountListGBA",
+						"WSCustomerAccountListGBA17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WSSecSalesCustomerOffer13",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"/CS/OCRM/WSSecSalesCustomerOffer13#GetOffersList\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSSecSalesCustomerOfferGetOffersList xmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\" xmlns:ns3=\"http://WSSecSalesCustomerOffer13.OCRM.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLI</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>GRCHB01</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <cus>UBBBG7</cus>\n                <channelMnemonic>DASH</channelMnemonic>\n            </inParms>\n        </ns3:WSSecSalesCustomerOfferGetOffersList>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/CS/OCRM/WSSecSalesCustomerOffer/WSSecSalesCustomerOffer13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"CS",
+						"OCRM",
+						"WSSecSalesCustomerOffer",
+						"WSSecSalesCustomerOffer13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllRights",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept-encoding": true,
+					"connection": true,
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "SOAPAction",
+						"value": "\"/CS/EQ/WSCustomerRightsNIB10#GetAllRights\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <soap:Body>\n        <ns3:WSCustomerRightsNIBGetRolesRights xmlns:ns2=\"http://WSCommonTypes10.CS.ws.alfabank.ru\" xmlns:ns3=\"http://WSCustomerRightsNIB10.EQ.CS.ws.alfabank.ru\">\n            <inCommonParms>\n                <userID>WSLK</userID>\n                <branchNumber>0000</branchNumber>\n                <externalSystemCode>ECO</externalSystemCode>\n                <externalUserCode>DASH</externalUserCode>\n            </inCommonParms>\n            <inParms>\n                <acus>XA7HHH</acus>\n            </inParms>\n        </ns3:WSCustomerRightsNIBGetRolesRights>\n    </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/CS/EQ/WSCustomerRightsNIB10/SOAP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"CS",
+						"EQ",
+						"WSCustomerRightsNIB10",
+						"SOAP"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

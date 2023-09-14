@@ -1,0 +1,29 @@
+plugins {
+    id 'ru.alfalab.microservice-configurer' version '3.18.0'
+}
+
+group = "ru.alfabank.microservices"
+
+microservice {
+    dependencyPack
+            .microservice()
+            .lombok()
+            .mapstruct()
+            .thrift()
+}
+
+
+dependencies {
+    implementation 'ru.alfabank.exceptional:spring-webflux:0.2.0'
+    implementation 'com.google.guava:guava:r05'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'ru.alfabank.thrift:thrift-api:0.2.2655'
+    implementation 'org.apache.thrift:libthrift:0.16.0'
+    implementation group: 'org.json', name: 'json', version: '20220320'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-contract-wiremock'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.apache.kafka:kafka-clients:2.4.1'
+    implementation 'ru.alfabank.starter:redis-spring-boot-starter-test:1.21.0'
+}
